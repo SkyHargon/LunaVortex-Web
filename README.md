@@ -1,8 +1,8 @@
-# LunaVortex - Cosmic Portfolio
+# LunaVortex - Cosmic Website
 
 ![Preview](assets/LH01.png)
 
-A modern dark-themed personal portfolio with cosmic interactions, designed for the LunaVortex brand.
+A modern dark-themed personal website with cosmic interactions, designed for LunaVortex.
 
 ## ✨ Features
 - Dynamic floating orbs with hover effects
@@ -16,4 +16,4 @@ A modern dark-themed personal portfolio with cosmic interactions, designed for t
 - Vanilla JavaScript
 - GitHub Pages Hosting
 
-## 📂 Project Structure
+## ♻ Welcome Advices !
