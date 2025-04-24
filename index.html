@@ -3,236 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon 配置 -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/LH02.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/LH02.png">
-    <link rel="apple-touch-icon" href="assets/LH02.png">
     <title>LunaVortex | Cosmic Creator</title>
+    <link rel="icon" href="assets/LH01.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/LH01.png">
+    <link rel="stylesheet" href="assets/styles.css">
     <style>
-        :root {
-            --space-black: #0a0a1a;
-            --neon-purple: #c678dd;
-            --vortex-pink: #ff61d7;
-            --stardust: #e0e0e0;
-            --cosmic-frost: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-
-        body {
-            background: var(--space-black);
-            color: var(--stardust);
-            overflow-x: hidden;
-        }
-
-        /* 动态星空背景 */
-        .cosmic-bg {
-            position: fixed;
-            width: 200vw;
-            height: 200vh;
-            background: linear-gradient(45deg, 
-                var(--space-black) 20%, 
-                #2a0944 60%, 
-                #511e78 100%);
-            animation: vortex 60s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes vortex {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        .container {
-            min-height: 100vh;
-            padding: 2rem;
-            display: grid;
-            place-items: center;
-        }
-
-        /* 毛玻璃卡片 */
-        .profile-card {
-            background: rgba(10, 10, 30, 0.8);
+        .interactive-card {
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 3rem;
-            box-shadow: 0 0 50px rgba(198, 120, 221, 0.2);
-            max-width: 600px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 品牌Logo */
-        .brand-logo {
-            width: 220px;
-            height: 67px;
-            margin: -50px auto 2rem;
-            display: block;
-            filter: drop-shadow(0 0 15px rgba(198, 120, 221, 0.4));
-            transition: transform 0.3s ease;
-            object-fit: contain;
-        }
-
-        /* 毛玻璃按钮样式 */
-        .portal-btn {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(198, 120, 221, 0.08);
-            border: 1px solid var(--neon-purple);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin: 1rem 0;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .portal-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--cosmic-frost);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: -1;
-            border-radius: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .portal-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 97, 215, 0) 0%,
-                rgba(255, 97, 215, 0.1) 50%,
-                rgba(198, 120, 221, 0) 100%
-            );
-            transform: rotate(30deg);
-            z-index: -1;
-            transition: all 0.6s ease;
-        }
-
-        .portal-btn:hover {
-            background: rgba(255, 97, 215, 0.15);
-            transform: translateX(20px);
-            box-shadow: 
-                0 0 15px rgba(255, 97, 215, 0.3),
-                0 0 30px rgba(198, 120, 221, 0.2);
-        }
-
-        .portal-btn:hover::after {
-            left: 100%;
-            top: 100%;
-        }
-
-        .portal-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(198, 120, 221, 0.3);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-size: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                inset 0 0 10px rgba(255, 255, 255, 0.1),
-                0 0 15px rgba(198, 120, 221, 0.3);
-        }
-
-        /* 页面切换动画 */
-        .details-page {
-            position: fixed;
-            top: 0;
-            left: 100%;
-            width: 100%;
-            height: 100%;
-            background: var(--space-black);
-            transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+            border-radius: 20px;
             padding: 2rem;
-            overflow-y: auto;
+            margin: 2rem auto;
+            max-width: 800px;
+            transition: transform 0.3s ease;
         }
-
-        .details-active .details-page {
-            transform: translateX(-100%);
-        }
+        /* ... 其他样式 ... */
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cosmic-bg"></div>
+    <div class="interactive-bg" id="interactiveBg"></div>
     
-    <!-- 主页面 -->
-    <div class="container">
-        <div class="profile-card">
-            <img src="assets/LH01.png" 
-                 alt="LunaVortex Logo"
-                 class="brand-logo">
-            
-            <div class="bio">
-                <h1>Cosmic Digital Creator</h1>
-                <p>🌌 Crafting extraordinary experiences between quantum bits<br>
-                🛸 Expertise: Interstellar UI • Metaspace Architecture</p>
-            </div>
+    <nav class="nav-container">
+        <img src="assets/LH01.png" alt="Logo" class="logo">
+        <div class="nav-links">
+            <a href="https://skyhargon.github.io">Home</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-            <!-- 交互按钮 -->
-            <div class="portal-btn" onclick="toggleDetails()">
-                <div class="portal-icon">🌀</div>
-                <div>
-                    <h3>Explore Stellar Profile</h3>
-                    <p>Enter quantum dimension</p>
-                </div>
+    <main class="main-content">
+        <h1>Cosmic Digital Creator</h1>
+        <p>🌌 Crafting extraordinary experiences between quantum bits</p>
+        <p>🛸 Expertise: Interstellar UI • Metaspace Architecture</p>
+        
+        <div class="cta-buttons">
+            <a href="about.html" class="cta-button">Explore Stellar Profile</a>
+            <a href="#contact" class="cta-button">Contact Me</a>
+        </div>
+        <div class="interactive-card">
+            <button class="expand-button" onclick="toggleContent()">
+                About 
+            </button>
+            <div class="expanded-content" id="expandedContent">
+                <h2>Latest Edition</h2>
+                <p>Powered By SkyHargon 2025/04/24</p>
+                <p>There will be more information...</p>
             </div>
         </div>
-    </div>
-
-    <!-- 详情页面 -->
-    <div class="details-page">
-        <div class="profile-card">
-            <div class="portal-btn" onclick="toggleDetails()">
-                <div class="portal-icon">🔙</div>
-                <div>
-                    <h3>Return to Main</h3>
-                    <p>Back to orbit hub</p>
-                </div>
-            </div>
-
-            <div class="about-section">
-                <h2>🌌 About Me</h2>
-                <p>Hi, I am SkyHargon, a student from China. Although my grades are mediocre, I have a great interest in many things, such as web development, UI design, painting, games, music, etc. I really want to make progress, but due to my own physical reasons, I have been stuck in a bottleneck and unable to break through. My English is relatively good (compared to other subjects). If you are interested in me, please feel free to send me an email or add me as a WeChat friend. Just as my opinion on Github introduction, I very very very love sleeping, who can refuse a sweet dream? </p>
-                
-                <div class="contact-list">
-                    <div class="portal-btn">
-                        <div class="portal-icon">🎮</div>
-                        <a href="https://steamcommunity.com/id/SkyHargon">Steam Link</a>
-                    </div>
-                    <!-- 其他联系方式 -->
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </main>
     <script>
-        function toggleDetails() {
-            document.body.classList.toggle('details-active');
+        // 创建背景粒子效果
+        function createParticles() {
+            const bg = document.getElementById('interactiveBg');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                bg.appendChild(particle);
+            }
+        }
+
+        // 添加鼠标移动时的粒子动画
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const x = e.clientX;
+                const y = e.clientY;
+                const rect = particle.getBoundingClientRect();
+                const dx = x - rect.left;
+                const dy = y - rect.top;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (100 - distance) / 10;
+                    particle.style.transform = `translate(${Math.cos(angle) * force}px, ${Math.sin(angle) * force}px)`;
+                }
+            });
+        });
+
+        createParticles();
+    </script>
+    <script>
+        // 展开/收起内容
+        function toggleContent() {
+            const content = document.getElementById('expandedContent');
+            content.classList.toggle('active');
         }
     </script>
 </body>
