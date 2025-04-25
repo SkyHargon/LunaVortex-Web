@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LunaVortex | Cosmic Creator</title>
     <link rel="icon" href="assets/LH02.png" type="image/png">
-    <link rel="apple-touch-icon" href="assets/LH02.png">
     <link rel="stylesheet" href="assets/styles.css">
     <style>
         .interactive-card {
@@ -17,17 +16,86 @@
             max-width: 800px;
             transition: transform 0.3s ease;
         }
-        /* ... 其他样式 ... */
+        .interactive-card:hover {
+            transform: translateY(-5px);
+        }
+        .expanded-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding-top: 1rem;
+        }
+        .expanded-content.active {
+            max-height: 1000px;
+        }
     </style>
 </head>
 <body>
-    <div class="interactive-bg" id="interactiveBg"></div>
+    <div id="starsContainer">
+        <!-- 50个星星 -->
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+        <div class="static-star" style="left: 85%; top: 65%; animation-duration: 2.8s"></div>
+        <div class="static-star" style="left: 15%; top: 20%; animation-duration: 1.2s"></div>
+    </div>
+    <!-- 新增星空容器 -->
+    <div id="starsContainer"></div>
+
+    <div class="interactive-bg"></div>
     
     <nav class="nav-container">
         <img src="assets/LH01.png" alt="Logo" class="logo">
         <div class="nav-links">
             <a href="https://skyhargon.github.io">Home</a>
             <a href="https://steamcommunity.com/id/SkyHargon/">Contact</a>
+            <a href="about.html">About</a>
         </div>
     </nav>
 
@@ -37,60 +105,38 @@
         <p>🛸 Expertise: Interstellar UI • Metaspace Architecture</p>
         
         <div class="cta-buttons">
-            <a href="about.html" class="cta-button">Explore Stellar Profile</a>
             <a href="https://steamcommunity.com/id/SkyHargon/" class="cta-button">Contact Me</a>
         </div>
+
         <div class="interactive-card">
-            <button class="expand-button" onclick="toggleContent()">
-                About 
-            </button>
-            <div class="expanded-content" id="expandedContent">
-                <h2>Latest Edition</h2>
-                <p>Powered By SkyHargon 2025/04/24</p>
-                <p>There will be more information...</p>
+            <div class="cta-buttons">
+                <a href="about.html" class="cta-button">About</a>
             </div>
         </div>
     </main>
+
     <script>
-        // 创建背景粒子效果
-        function createParticles() {
-            const bg = document.getElementById('interactiveBg');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                bg.appendChild(particle);
+        // 星空生成器（兼容GitHub CSP）
+        function createStars() {
+            const container = document.getElementById('starsContainer');
+            for(let i=0; i<50; i++){
+                const star = document.createElement('div');
+                star.className = 'static-star';
+                star.style.left = Math.random()*100 + '%';
+                star.style.top = Math.random()*100 + '%';
+                star.style.animationDuration = (Math.random()*3 +1)+'s';
+                container.appendChild(star);
             }
         }
 
-        // 添加鼠标移动时的粒子动画
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach(particle => {
-                const x = e.clientX;
-                const y = e.clientY;
-                const rect = particle.getBoundingClientRect();
-                const dx = x - rect.left;
-                const dy = y - rect.top;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 100) {
-                    const angle = Math.atan2(dy, dx);
-                    const force = (100 - distance) / 10;
-                    particle.style.transform = `translate(${Math.cos(angle) * force}px, ${Math.sin(angle) * force}px)`;
-                }
-            });
-        });
-
-        createParticles();
-    </script>
-    <script>
-        // 展开/收起内容
+        // 展开/收起功能
         function toggleContent() {
             const content = document.getElementById('expandedContent');
             content.classList.toggle('active');
         }
+
+        // 初始化
+        createStars();
     </script>
 </body>
 </html>
